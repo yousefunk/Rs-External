@@ -1,0 +1,31 @@
+#include "sdk.hpp"
+
+OverwatchSDK* SDK = nullptr;
+std::vector<EntityInfo> g_entities;
+Matrix g_viewMatrix;
+float3 g_cameraPos = {};
+float g_screenW = 1920, g_screenH = 1080;
+DWORD g_pid = 0;
+uint64_t g_base = 0;
+HWND g_hWnd = nullptr;
+ID3D11Device* g_pd3dDevice = nullptr;
+ID3D11DeviceContext* g_pd3dContext = nullptr;
+IDXGISwapChain* g_pSwapChain = nullptr;
+ID3D11RenderTargetView* g_mainRT = nullptr;
+bool g_running = true;
+bool g_menuOpen = false;
+bool g_drawBoxes = false, g_drawSkeleton = false, g_drawLines = false, g_draw3dBox = false, g_teamCheck = false, g_visCheck = false;
+bool g_noRecoil = false;
+HANDLE g_recoilThread = nullptr;
+bool g_aimbot = false, g_tracking = false, g_flickbot = false, g_reflick = false;
+float g_trackingSpeed = 1.0f, g_aimFov = 180.0f, g_flickFov = 100.0f, g_flickSpeed = 2.0f;
+int g_reflickInterval = 200, g_aimKey = VK_RBUTTON, g_flickKey = 'F', g_aimBone = 0, g_localTeam = 0;
+bool g_waitingForKey = false, g_waitingFlickKey = false;
+bool g_outlineEnabled = false, g_outlineRainbow = false, g_glowEnabled = false;
+ImVec4 g_outlineColor = {1,1,1,1}, g_glowColorVisible = {0,1,0,1}, g_glowColorEnemy = {1,0,0,1};
+bool g_triggerEnabled = false, g_triggerHoldKey = false;
+int  g_triggerButton = 0, g_triggerDelayMs = 50, g_triggerGrace = 100, g_triggerKey = VK_XBUTTON1;
+float g_triggerRadius = 15.0f;
+bool g_waitTrigKey = false;
+bool g_ultBars = false, g_ultPanel = false;
+std::unordered_map<uint64_t, EntityComponentCache> g_componentCache;
